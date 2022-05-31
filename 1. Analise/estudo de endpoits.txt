@@ -1,0 +1,136 @@
+
+(1 CASO DE USO)  Realizar loguin
+
+    /POST       /usuario/login
+
+request (body)
+{
+    "email": "",
+    "senha": ""
+}
+
+response (200)
+{
+    "id": 0,
+    "email": "",
+    "nome": ""
+}
+
+/////////////////////////////////////////////////////////////
+
+(2 CASO DE USO)  Cadastrar novo filme
+
+    /POST      /filme
+
+request (body)
+{
+    "nome": "",
+    "sinopse": "",
+    "avaliaçao": 0.0,
+    "lancamento": "2020-10-00",
+    "disponivel": true,
+    "imagem": "",
+    "usuario": 0   
+}
+
+response
+{
+    "id": 1,
+    "nome": "",
+    "sinopse": "",
+    "avaliaçao": 0.0,
+    "lancamento": "2020-10-00",
+    "disponivel": true,
+    "imagem": "",
+    "usuario": 0 
+}
+
+/////////////////////////////////////////////////////////////
+
+(2.1 CASO DE USO)  Colocar imagem
+    /PUT      /filme/:id/imagem
+
+request (form)
+{
+    "imagem": ""
+}
+
+response (204)
+--sem conteúdo
+
+/////////////////////////////////////////////////////////////
+
+(3 CASO DE USO) Alterar filme
+
+    /PUT    /filme/:id
+
+request (body)
+{
+    "nome": "",
+    "sinopse": "",
+    "avaliaçao": 0.0,
+    "lancamento": "2020-10-00",
+    "disponivel": true,
+    "imagem": "",
+    "usuario": 0 
+}
+
+response (204)
+-- sem conteúdo ....
+
+/////////////////////////////////////////////////////////////
+
+(4 CXASO DE USO) Remover filme
+
+    /DELETE     /filme/:id
+
+response (204)
+
+/////////////////////////////////////////////////////////////
+
+(5 CASO DE USO)   Consultar todos os filmes
+
+    /GET    /filme
+
+response (200)
+[
+    {
+        "nome": "",
+        "avaliaçao": 0.0,
+        "lancamento": "2020-10-00",
+        "disponivel": true,
+        "usuario": 0
+    } 
+]   
+
+(6 CASO DE USO) Consultar filmes por nome
+
+    /GET    /filme/busca?nome=xx
+
+response (200)
+[
+    {
+        "nome": "",
+        "avaliaçao": 0.0,
+        "lancamento": "2020-10-00",
+        "disponivel": true,
+        "usuario": 0
+    } 
+] 
+
+/////////////////////////////////////////////////////////////
+
+(7 CASO DE USO) Consultar filme por id
+
+    /GET    /filme/:id
+
+response (200)
+{
+    "nome": "",
+    "avaliaçao": 0.0,
+    "sinopse": "",
+    "lancamento": "2020-10-00",
+    "disponivel": true,
+    "imagem": "",
+    "usuario": 0
+} 
