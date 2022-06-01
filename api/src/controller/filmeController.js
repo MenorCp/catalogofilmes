@@ -39,13 +39,16 @@ server.post('/filme', async(req, resp) => {
     }
 })
 
-server.put('/filme/:id/capa', upload.single('capa') , async (req, resp) => {
+server.put('/filme/:id/capa' ,upload.single('capa'), async (req, resp) => {
     try{
         const { id } = req.params;
         const imagem = req.file.path;
 
-        const resposta = alterarImagem(imagem, id);
+        const resposta = await alterarImagem(imagem, id);
 
+        if (resposta != 1)
+                throw new Error ('Aimgame não pode ser salva');
+                
         resp.status(204).send();
     }catch(err){    
         resp.status(400).send({

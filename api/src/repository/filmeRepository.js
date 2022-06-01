@@ -15,16 +15,14 @@ export async function inserirFilme(filme){
 
 export async function alterarImagem(imagem, id){
     const comando = 
-    `
-    UPDATE tb_filme 
+    `UPDATE tb_filme 
     SET img_filme     = ?
-    WHERE id_filme    = ?
-    `;
+    WHERE id_filme    = ? `;
 
-    const resposta = await con.query(comando, [imagem, id]);
-    return resposta
+    const [ resposta ] = await con.query(comando, [imagem, id]);
+    return resposta.affectedRows;
 }
-
+  
 
 export async function listarTodosFilmes() {
     const comando =    
